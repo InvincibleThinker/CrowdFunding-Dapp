@@ -33,10 +33,18 @@ module.exports = {
   },
   solidity: {
     version: "0.8.17",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200,
+    defaultNetwork: "linea_sepolia",
+    networks: {
+      hardhat: {},
+      linea_sepolia: {
+        url: `https://linea-sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+        accounts: [`0x${process.env.PRIVATE_KEY}`],
+      },
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200,
+        },
       },
     },
   },
